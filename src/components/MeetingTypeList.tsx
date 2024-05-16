@@ -3,12 +3,17 @@ import Image from "next/image";
 import React, { useState } from "react";
 import HomeCard from "./HomeCard";
 import { useRouter } from "next/navigation";
+import MeetingModal from "./MeetingModal";
 
 const MeetingTypeList = () => {
   const router = useRouter();
   const [meetingState, setMeetingState] = useState<
     "isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
   >();
+  function createMeeting(): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <section className="grid grid-cols-a gap-5 md:grid-cols-2 xl:grid-cols-4">
       <HomeCard
@@ -16,6 +21,7 @@ const MeetingTypeList = () => {
         title="New Meeting"
         description="Start an instant meeting"
         handleClick={() => setMeetingState("isInstantMeeting")}
+        className="bg-orange-1"
       />
       <HomeCard
         img="/icons/join-meeting.svg"
@@ -37,6 +43,14 @@ const MeetingTypeList = () => {
         description="Meeting Recordings"
         className="bg-yellow-1"
         handleClick={() => router.push("/recordings")}
+      />
+      <MeetingModal
+        isOpen={meetingState === "isInstantMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        title="Start an Instant Meeting"
+        className="text-center"
+        buttonText="Start Meeting"
+        handleClick={createMeeting}
       />
     </section>
   );
