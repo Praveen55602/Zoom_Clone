@@ -46,7 +46,7 @@ const MeetingSetup = ({
       <Button
         className="rounded-md bg-green-500 px-4 py-2.5"
         onClick={() => {
-          call.join;
+          call.join();
           setIsSetupComplete(true);
         }}
       >
