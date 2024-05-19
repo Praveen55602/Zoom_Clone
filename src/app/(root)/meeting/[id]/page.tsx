@@ -8,7 +8,7 @@ import {
   StreamTheme,
 } from "@stream-io/video-react-sdk";
 import React, { useState } from "react";
-import { useGetCallById } from "../../../../../hooks/useGetCallById";
+import { useGetCallById } from "../../../../hooks/useGetCallById";
 import Loader from "@/components/Loader";
 
 const Meeting = ({ params: { id } }: { params: { id: string } }) => {
